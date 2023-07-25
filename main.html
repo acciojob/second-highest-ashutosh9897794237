@@ -10,29 +10,18 @@
 	<script>
 		function secondHighest(arr,arr_size) {
 			//Write your code here
-		let i, first, second;
-  
-        // There should be atleast two elements
-        if (arr_size < 2) {
-            document.write(" Invalid Input ");
-            return;
+		let first = -1 , second = -1;
+
+    for(let i = 0; i <= arr.length-1; i++){
+        if(arr[i] > first){
+            second = first;
+            first = arr[i];
         }
-  
-        // sort the array
-        arr.sort();
-  
-        // start from second last element
-        // as the largest element is at last
-        for (i = arr_size - 2; i >= 0; i--) {
-            // if the element is not
-            // equal to largest element
-            if (arr[i] != arr[arr_size - 1]) {
-                document.write("The second largest element is " + arr[i]);
-                return;
-            }
+        else if( arr[i] > second && arr[i] != first){
+            second = arr[i];
         }
-  
-        document.write("There is no second largest element<br>");
+    }
+    console.log(second);
     }
   	
 		}
